@@ -1,0 +1,166 @@
+---
+title: "What is the Impact of the NOx Budget Program on Each County's NOx Emissions?"
+format: gfm
+editor: visual
+---
+
+Step 1. Install necessary packages.
+
+```{r}
+#install.packages("tidyverse")
+#install.packages("kableExtra")
+```
+
+Step 2. Declare that you will use these packages in this session.
+
+```{r}
+library("tidyverse")
+library("kableExtra")
+```
+
+Step 3. Upload the dataframe that you have created in Spring 2024 into the repository.
+
+Step 4. Open the dataframe into the RStudio Environment.
+
+```{r}
+df<-read.csv("data.csv")
+```
+
+Step 5. Use the **head** and **kable** function showcase the first 10 rows of the dataframe to the reader.
+
+```{r}
+kable(head(df))
+```
+
+## Question 1: What is the frequency of this data frame?
+
+Answer: Seasonally, for each year
+
+## Question 2: What is the cross-sectional (geographical) unit of this data frame?
+
+Answer: County (represented by the fips variable)
+
+Step 6. Use the **names** function to display all the variables (column) in the dataframe.
+
+```{r}
+names(df)
+```
+
+## Question 3: Which column represents the treatment variable of interest?
+
+The treatment variable is a product of two variables: nbp and post.
+
+nbp is equal to 1 if a state is ever regulated by the NOx Budget Program.
+
+post is equal to 0.5 in the year 2003 and equal to 1 in the years 2004 through 2007. Otherwise, post is equal to 0.
+
+smm is equal to 1 in the summer and 0 otherwise.
+
+```{r}
+df2<-df %>%
+  mutate(post=0) %>%
+  mutate(post=ifelse(year>=2004, 1, post)) %>%
+  mutate(post=ifelse(year==2003,0.5, post)) %>%
+  mutate(nbpxpostxsmm=nbp*post*smm)
+```
+
+Answer: nbpxpost
+
+## Question 4: Which column represents the outcome variable of interest?
+
+Answer: nox_emit
+
+Step 7: Create a boxplot to visualize the distribution of the outcome variable under treatment and no treatment.
+
+```{r}
+temp<-df2 %>%
+  filter(nbp==1)
+
+ggplot(temp, aes(x=nox_emit)) +
+  geom_histogram() +
+  facet_wrap(~post)
+```
+
+Step 8: Fit a regression model $y=\beta_0 + \beta_1 x + \epsilon$ where $y$ is the outcome variable and $x$ is the treatment variable. Use the **summary** function to display the results.
+
+```{r}
+model1<-lm(nox_emit ~ nbpxpostxsmm, data=df2)
+
+summary(model1)
+```
+
+## Question 5: What is the predicted value of the outcome variable when treatment=0?
+
+Answer: 0.68
+
+## Question 6: What is predicted value of the outcome variable when treatment=1?
+
+Answer: 0.68-0.26 = 0.42
+
+## Question 7: What is the equation that describes the linear regression above? Please include an explanation of the variables and subscripts.
+
+Answer:
+
+$$NOx_{cst} = \beta_0 + \beta_1 (NBP_{c} \times Post_{t} \times Summer_{s}) + \epsilon_{cst}$$
+
+where $NOx_{cst}$ represents NOx emissions (in tons) for each county $c$, season $s$, and year $t$.
+
+NBP represents NBP regulation status.
+
+Post is equal to 1 when the policy is enforced.
+
+Summer is equal to 1 in the summer months.
+
+## Question 8: What fixed effects can be included in the regression? What does each fixed effects control for? Please include a new equation that incorporates the fixed effects.
+
+Answer:
+
+$\mu_{cs}$ is county by season fixed effects to take into account county-level regulation that are in effect in specific seasons.
+
+$\eta_{st}$ is season by year fixed effects to take into account all factors common to a season and a year throughout the United States, such as the development of a new medicine.
+
+$\nu_{state - t}$ is is state by year fixed effects to take into account state-level regulation that are in effect such as the MA State Implementation Plan.
+
+$$NOx_{cst} = \beta_0 + \beta_1 NBP_{cst} + \mu_{cs}+\eta_{st}+\nu_{state-t}+\epsilon_{cst}$$
+
+## Question 9: What is the impact of the treatment effect once fixed effects are included?
+
+Answer:
+
+```{r}
+library("fixest")
+
+df3<-df2 %>%
+  mutate(cs=fips*smm,
+         st=smm*year,
+         stXy = paste(state, "-", as.character(year)))
+
+summary(model2<-feols(nox_emit ~ nbpxpostxsmm | cs + st + stXy, data=df3))
+
+```
+
+# Questions for Week 5
+
+## Question 10: In a difference-in-differences (DiD) model, what is the treatment GROUP?
+
+Answer:
+
+## Question 11: In a DiD model, what are the control groups?
+
+Answer:
+
+## Question 12: What is the DiD regression equation that will answer your research question?
+
+## Question 13: Run your DiD regressions below. What are the results of the DiD regression?
+
+## Question 14: What are the next steps of your research?
+
+Step 9: Change the document format to gfm
+
+Step 10: Save this document as README.qmd
+
+Step 11: Render the document. README.md file should be created after this process.
+
+Step 12: Push the document back to GitHub and observe your beautiful document in your repository!
+
+Step 13: If your team has a complete dataframe that includes both the treated and outcome variable, you are done with the assignment. If not, make a research plan in Notion to collect data on the outcome and treatment variable and combine it into one dataframe.
