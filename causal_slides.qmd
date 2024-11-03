@@ -1,0 +1,30 @@
+---
+title: "GFM Page for Causal Projects"
+format: revealjs
+editor: visual
+---
+
+## Visualizing Treated and Untreated Groups with Maps
+
+Teams *TOU Rebates, Go Green, Silver Lining*, and *Silver Rentals* will need to show a map indicating the **treated** and the **untreated** area for your poster and GitHub-Flavored Markdown page.
+
+Teams *TOU Rebates* and *Go Green* may use a map from an online source and explain the treated and untreated group.
+
+Teams *Silver Lining* and *Silver Rentals* will need to create a map in R illustrating the two areas.
+
+## Visualizing Treated and Untreated Groups with R
+
+## Visualizing Treated and Untreated Outcomes with a Line Graph
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Formatting the GFM Page
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
