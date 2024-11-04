@@ -1,30 +1,250 @@
 ---
-title: "GFM Page for Causal Projects"
+title: "Tips for Making Your Poster and GFM Page"
 format: revealjs
 editor: visual
 ---
 
+## What is a GitHub-Flavored Markdown Page (GFM)
+
+-   It is the page that you will see when you go to github.com/umdfiresa2024/research-*Team-Name*
+
+-   You can create this page by editing README.qmd in your team's GitHub repository
+
+-   After you Render, a README.md page is created
+
+-   After you commit and push, README.md will be your team's GitHub repository homepage. This is also called your team's GFM page.What is a GitHub-Flavored Markdown Page (GFM)
+
+## Today's Agenda
+
+-   Discuss products required in your team's GFM page and poster
+
+    -   Visualizing treated and untreated groups with maps (for some teams)
+
+    -   Visualizing treated and untreated outcome variable with a line graph
+
+    -   Formatting a table summarizing the regression results
+
 ## Visualizing Treated and Untreated Groups with Maps
 
-Teams *TOU Rebates, Go Green, Silver Lining*, and *Silver Rentals* will need to show a map indicating the **treated** and the **untreated** area for your poster and GitHub-Flavored Markdown page.
+-   Teams *TOU Rebates, Go Green, Silver Lining*, and *Silver Rentals* will need to show a map indicating the **treated** and the **untreated** area for your poster and GitHub-Flavored Markdown page.
 
-Teams *TOU Rebates* and *Go Green* may use a map from an online source and explain the treated and untreated group.
+-   Teams *TOU Rebates* and *Go Green* may use a map from an online source and explain the treated and untreated group.
 
-Teams *Silver Lining* and *Silver Rentals* will need to create a map in R illustrating the two areas.
+-   Teams *Silver Lining* and *Silver Rentals* will need to create a map in R illustrating the two areas.
 
-## Visualizing Treated and Untreated Groups with R
+## Visualizing Treated and Untreated Groups with Maps using R
+
+Uploading and selecting SpatVector data
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+library("terra")
+
+va<-vect("G:/Shared drives/2024 FIRE-SA/DATA/Silver Lining/VA/VA_Zip_Codes.shp")
+
+#map only counties that are in fairfax and loudon
+fairfax_zip_codes <- c(
+  "20120", "20121", "20124", "20151", "22003", "22015", "22027", "22030", 
+  "22031", "22032", "22033", "22035", "22039", "22041", "22042", "22043", 
+  "22044", "22046", "22060", "22066", "22101", "22102", "22124", "22150", 
+  "22151", "22152", "22153", "22172", "22180", "22181", "22182", "22306", 
+  "22307", "22308", "22309", "22310", "22311", "22312", "22315"
+)
+
+loudoun_zip_codes <- c(
+  "20105", "20117", "20129", "20132", "20135", "20141", "20147", "20148", 
+  "20152", "20158", "20164", "20165", "20166", "20175", "20176", "20180", 
+  "20197", "20175", "20176", "20177", "20178"
+)
+
+fl<-subset(va, va$ZIP_CODE %in% fairfax_zip_codes | 
+              va$ZIP_CODE %in% loudoun_zip_codes)
+```
+
+## Visualizing Treated and Untreated Groups with Maps using R
+
+Identifying treated and untreated groups
+
+```{r}
+#| echo: true
+
+#create new column to indicate treated and untreated group
+fl$trt<-0
+
+zip_silver <- c(
+  "20148", "20166", "20147", "20041", "20170", "20171", 
+  "20190", "20191", "22046", "22203", "22205", "22201", 
+  "22043", "22102", "22182", "22213", "22209"
+)
+
+fl$trt[fl$ZIP_CODE %in% zip_silver] <- 1
+```
+
+## Visualizing Treated and Untreated Groups with Maps using R
+
+Visualizing the results
+
+```{r}
+#| echo: true
+
+plot(fl, "trt", col=map.pal("blues"))
+```
+
+<https://rdrr.io/cran/terra/man/mappal.html> is a tutorial on changing map color palette.
+
+## Visualizing Treated and Untreated Groups with Maps using R
+
+Saving the map as a .png file
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+png("map.png", width=6, height=4, unit="in", res=500)
+
+plot(fl, "trt", col=map.pal("blues"))
+
+dev.off()
+```
 
 ## Visualizing Treated and Untreated Outcomes with a Line Graph
 
-When you click the **Render** button a document will be generated that includes:
+As teams *TOU Rebates, Go Green, Silver Lining*, and *Silver Rentals* are using difference-in-difference estimation methodology, you would need to create a graph showing the change in the outcome variable across time.
 
--   Content authored with markdown
--   Output from executable code
+![](didgraph.png){fig-align="center"}
+
+## Visualizing Treated and Untreated Outcomes with a Line Graph
+
+Formatting the dataframe
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+library("tidyverse")
+
+df<-read.csv("panel.csv")
+
+cities<-c("Charlotte, NC", "Winston-Salem, NC")
+
+df2<-df %>%
+  filter(Address %in% cities) %>%
+  group_by(year, Address) %>%
+  summarize(pm25=mean(pm25))
+
+head(df2)
+```
+
+## Visualizing Treated and Untreated Outcomes with a Line Graph
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+ggplot(data=df2, aes(x=year, y=pm25, col=Address)) + 
+  scale_colour_manual(values = c("cornflowerblue", "coral"))+
+  geom_line(lwd=2) +
+  geom_vline(xintercept=2007, linetype="dashed") + 
+  theme_bw() 
+  
+
+```
+
+[List](https://sape.inf.usi.ch/quick-reference/ggplot2/colour) of colors names in R
+
+## Visualizing Treated and Untreated Outcomes with a Line Graph
+
+Saving the graph as a .png file
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+png("did.png", width=6, height=4, units="in", res=500)
+
+ggplot(data=df2, aes(x=year, y=pm25, col=Address)) + 
+  scale_colour_manual(values = c("cornflowerblue", "coral"))+
+  geom_line(lwd=2) +
+  geom_vline(xintercept=2007, linetype="dashed") + 
+  theme_bw() 
+
+dev.off()
+```
+
+## Formatting Regression Results
+
+Model 1
+
+```{r}
+#| echo: true
+df3<-df2 %>%
+  mutate(trt=ifelse(Address=="Charlotte, NC", 1, 0)) %>%
+  mutate(trt_time=ifelse(year>2007,1,0))
+
+model1<-lm(pm25 ~ trt*trt_time, data=df3)
+
+summary(model1)
+```
+
+## Formatting Regression Results
+
+|                  | Model 1                  | Model 2 |
+|------------------|--------------------------|---------|
+| Estimated Impact | 0.40                     |         |
+| Controls         | Treated City FE, Time FE |         |
+| Obs              | 29                       |         |
+| R2               | 0.84                     |         |
+
+: Regression Results
+
+## Formatting Regression Results
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+library("lfe")
+
+model2<-felm(pm25 ~ trt*trt_time | year, data=df3)
+
+summary(model2)
+```
+
+## Formatting Regression Results
+
+|   | Model 1 | Model 2 |
+|------------------------|------------------------|------------------------|
+| Estimated Impact | 0.40 | 0.36 |
+| Controls | Treated City FE, Time FE | Treated City FE, Time FE, Year FE |
+| Obs | 29 | 29 |
+| R2 | 0.84 | 0.99 |
+
+## Formatting Regression Results
+
+Example table is shown in
+
+Google Drive/Shared drives/2024 FIRE-SA/Fall Course/Regression Results.gsheet
 
 ## Formatting the GFM Page
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+At the beginning of each chunk, you can enter an option to suppress warnings, messages, and the running of codes
 
-```{r}
-1 + 1
-```
+<https://quarto.org/docs/computations/execution-options.html>
+
+**#\| eval: FALSE** if you do not want the code to run when you click Render
+
+**#\| warning: FALSE** if you do not want warning messages to be displayed when you Render
+
+## That's it!
+
+-   Slides can be found on ELMs -\> Modules -\> Week 11
+
+-   Don't forget to come in for a Lab Consultation and a Lab Check-in!

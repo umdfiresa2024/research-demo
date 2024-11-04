@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="causal_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="causal_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="causal_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="causal_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="causal_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="causal_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="causal_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="causal_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="predict_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="predict_slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="predict_slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="predict_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="predict_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="predict_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="predict_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="predict_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <title>Tips for Making Your Poster and GFM Page</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="causal_slides_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="causal_slides_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="predict_slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="predict_slides_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,11 +94,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="causal_slides_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="causal_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="causal_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="causal_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="causal_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="predict_slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="predict_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="predict_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="predict_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="predict_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -410,147 +410,68 @@
 <ul>
 <li><p>Discuss products required in your team’s GFM page and poster</p>
 <ul>
-<li><p>Visualizing treated and untreated groups with maps (for some teams)</p></li>
-<li><p>Visualizing treated and untreated outcome variable with a line graph</p></li>
-<li><p>Formatting a table summarizing the regression results</p></li>
+<li><p>Showcasing work in other programming languages</p></li>
+<li><p>Formatting the GFM page</p></li>
+<li><p>Visualizing correlations with a line graph</p></li>
+<li><p>Formatting regression results</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="visualizing-treated-and-untreated-groups-with-maps" class="slide level2">
-<h2>Visualizing Treated and Untreated Groups with Maps</h2>
-<ul>
-<li><p>Teams <em>TOU Rebates, Go Green, Silver Lining</em>, and&nbsp;<em>Silver Rentals</em> will need to show a map indicating the <strong>treated</strong> and the <strong>untreated</strong> area for your poster and GitHub-Flavored Markdown page.</p></li>
-<li><p>Teams <em>TOU Rebates</em> and <em>Go Green</em> may use a map from an online source and explain the treated and untreated group.</p></li>
-<li><p>Teams <em>Silver Lining</em> and&nbsp;<em>Silver Rentals</em> will need to create a map in R illustrating the two areas.</p></li>
-</ul>
+<section id="showcasing-work-in-other-programming-languages" class="slide level2">
+<h2>Showcasing work in other programming languages</h2>
+<p>Insert -&gt; Executable Cell -&gt; Python</p>
 </section>
-<section id="visualizing-treated-and-untreated-groups-with-maps-using-r" class="slide level2">
-<h2>Visualizing Treated and Untreated Groups with Maps using R</h2>
-<p>Uploading and selecting SpatVector data</p>
+<section id="formatting-the-gfm-page" class="slide level2">
+<h2>Formatting the GFM page</h2>
+<p>At the beginning of each chunk, you can enter an option to suppress warnings, messages, and the running of codes</p>
+<p><a href="https://quarto.org/docs/computations/execution-options.html" class="uri">https://quarto.org/docs/computations/execution-options.html</a></p>
+<p><strong>#| eval: FALSE</strong> if you do not want the code to run when you click Render</p>
+<p><strong>#| warning: FALSE</strong> if you do not want warning messages to be displayed when you Render</p>
+</section>
+<section id="visualizing-correlations-with-a-line-graph" class="slide level2 smaller">
+<h2>Visualizing Correlations with a Line Graph</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(<span class="st">"terra"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>va<span class="ot">&lt;-</span><span class="fu">vect</span>(<span class="st">"G:/Shared drives/2024 FIRE-SA/DATA/Silver Lining/VA/VA_Zip_Codes.shp"</span>)</span>
+<span id="cb1-3"><a href=""></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"panel.csv"</span>)</span>
 <span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a><span class="co">#map only counties that are in fairfax and loudon</span></span>
-<span id="cb1-6"><a href=""></a>fairfax_zip_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-7"><a href=""></a>  <span class="st">"20120"</span>, <span class="st">"20121"</span>, <span class="st">"20124"</span>, <span class="st">"20151"</span>, <span class="st">"22003"</span>, <span class="st">"22015"</span>, <span class="st">"22027"</span>, <span class="st">"22030"</span>, </span>
-<span id="cb1-8"><a href=""></a>  <span class="st">"22031"</span>, <span class="st">"22032"</span>, <span class="st">"22033"</span>, <span class="st">"22035"</span>, <span class="st">"22039"</span>, <span class="st">"22041"</span>, <span class="st">"22042"</span>, <span class="st">"22043"</span>, </span>
-<span id="cb1-9"><a href=""></a>  <span class="st">"22044"</span>, <span class="st">"22046"</span>, <span class="st">"22060"</span>, <span class="st">"22066"</span>, <span class="st">"22101"</span>, <span class="st">"22102"</span>, <span class="st">"22124"</span>, <span class="st">"22150"</span>, </span>
-<span id="cb1-10"><a href=""></a>  <span class="st">"22151"</span>, <span class="st">"22152"</span>, <span class="st">"22153"</span>, <span class="st">"22172"</span>, <span class="st">"22180"</span>, <span class="st">"22181"</span>, <span class="st">"22182"</span>, <span class="st">"22306"</span>, </span>
-<span id="cb1-11"><a href=""></a>  <span class="st">"22307"</span>, <span class="st">"22308"</span>, <span class="st">"22309"</span>, <span class="st">"22310"</span>, <span class="st">"22311"</span>, <span class="st">"22312"</span>, <span class="st">"22315"</span></span>
-<span id="cb1-12"><a href=""></a>)</span>
-<span id="cb1-13"><a href=""></a></span>
-<span id="cb1-14"><a href=""></a>loudoun_zip_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-15"><a href=""></a>  <span class="st">"20105"</span>, <span class="st">"20117"</span>, <span class="st">"20129"</span>, <span class="st">"20132"</span>, <span class="st">"20135"</span>, <span class="st">"20141"</span>, <span class="st">"20147"</span>, <span class="st">"20148"</span>, </span>
-<span id="cb1-16"><a href=""></a>  <span class="st">"20152"</span>, <span class="st">"20158"</span>, <span class="st">"20164"</span>, <span class="st">"20165"</span>, <span class="st">"20166"</span>, <span class="st">"20175"</span>, <span class="st">"20176"</span>, <span class="st">"20180"</span>, </span>
-<span id="cb1-17"><a href=""></a>  <span class="st">"20197"</span>, <span class="st">"20175"</span>, <span class="st">"20176"</span>, <span class="st">"20177"</span>, <span class="st">"20178"</span></span>
-<span id="cb1-18"><a href=""></a>)</span>
-<span id="cb1-19"><a href=""></a></span>
-<span id="cb1-20"><a href=""></a>fl<span class="ot">&lt;-</span><span class="fu">subset</span>(va, va<span class="sc">$</span>ZIP_CODE <span class="sc">%in%</span> fairfax_zip_codes <span class="sc">|</span> </span>
-<span id="cb1-21"><a href=""></a>              va<span class="sc">$</span>ZIP_CODE <span class="sc">%in%</span> loudoun_zip_codes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="visualizing-treated-and-untreated-groups-with-maps-using-r-1" class="slide level2">
-<h2>Visualizing Treated and Untreated Groups with Maps using R</h2>
-<p>Identifying treated and untreated groups</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co">#create new column to indicate treated and untreated group</span></span>
-<span id="cb2-2"><a href=""></a>fl<span class="sc">$</span>trt<span class="ot">&lt;-</span><span class="dv">0</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a>zip_silver <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-5"><a href=""></a>  <span class="st">"20148"</span>, <span class="st">"20166"</span>, <span class="st">"20147"</span>, <span class="st">"20041"</span>, <span class="st">"20170"</span>, <span class="st">"20171"</span>, </span>
-<span id="cb2-6"><a href=""></a>  <span class="st">"20190"</span>, <span class="st">"20191"</span>, <span class="st">"22046"</span>, <span class="st">"22203"</span>, <span class="st">"22205"</span>, <span class="st">"22201"</span>, </span>
-<span id="cb2-7"><a href=""></a>  <span class="st">"22043"</span>, <span class="st">"22102"</span>, <span class="st">"22182"</span>, <span class="st">"22213"</span>, <span class="st">"22209"</span></span>
-<span id="cb2-8"><a href=""></a>)</span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a>fl<span class="sc">$</span>trt[fl<span class="sc">$</span>ZIP_CODE <span class="sc">%in%</span> zip_silver] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="visualizing-treated-and-untreated-groups-with-maps-using-r-2" class="slide level2">
-<h2>Visualizing Treated and Untreated Groups with Maps using R</h2>
-<p>Visualizing the results</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">plot</span>(fl, <span class="st">"trt"</span>, <span class="at">col=</span><span class="fu">map.pal</span>(<span class="st">"blues"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href=""></a>cities<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Charlotte, NC"</span>, <span class="st">"Winston-Salem, NC"</span>)</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a>df2<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="fu">filter</span>(Address <span class="sc">%in%</span> cities)</span>
+<span id="cb1-9"><a href=""></a></span>
+<span id="cb1-10"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>df2, <span class="fu">aes</span>(<span class="at">x=</span>Rainf_tavg, <span class="at">y=</span>pm25, <span class="at">col=</span>Address)) <span class="sc">+</span> </span>
+<span id="cb1-11"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-12"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"coral"</span>))<span class="sc">+</span></span>
+<span id="cb1-13"><a href=""></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="causal_slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><p><a href="https://rdrr.io/cran/terra/man/mappal.html" class="uri">https://rdrr.io/cran/terra/man/mappal.html</a> is a tutorial on changing map color palette.</p>
+<img data-src="predict_slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><p><a href="https://sape.inf.usi.ch/quick-reference/ggplot2/colour">List</a> of colors names in R</p>
 </section>
-<section id="visualizing-treated-and-untreated-groups-with-maps-using-r-3" class="slide level2">
-<h2>Visualizing Treated and Untreated Groups with Maps using R</h2>
-<p>Saving the map as a .png file</p>
+<section id="visualizing-correlations-with-a-line-graph-1" class="slide level2">
+<h2>Visualizing Correlations with a Line Graph</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">png</span>(<span class="st">"map.png"</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">height=</span><span class="dv">4</span>, <span class="at">unit=</span><span class="st">"in"</span>, <span class="at">res=</span><span class="dv">500</span>)</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a><span class="fu">plot</span>(fl, <span class="st">"trt"</span>, <span class="at">col=</span><span class="fu">map.pal</span>(<span class="st">"blues"</span>))</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
-</div>
-</div>
-</section>
-<section id="visualizing-treated-and-untreated-outcomes-with-a-line-graph" class="slide level2">
-<h2>Visualizing Treated and Untreated Outcomes with a Line Graph</h2>
-<p>As teams <em>TOU Rebates, Go Green, Silver Lining</em>, and&nbsp;<em>Silver Rentals</em> are using difference-in-difference estimation methodology, you would need to create a graph showing the change in the outcome variable across time.</p>
-
-<img data-src="didgraph.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="visualizing-treated-and-untreated-outcomes-with-a-line-graph-1" class="slide level2">
-<h2>Visualizing Treated and Untreated Outcomes with a Line Graph</h2>
-<p>Formatting the dataframe</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"panel.csv"</span>)</span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a>cities<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Charlotte, NC"</span>, <span class="st">"Winston-Salem, NC"</span>)</span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a>df2<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span></span>
-<span id="cb6-8"><a href=""></a>  <span class="fu">filter</span>(Address <span class="sc">%in%</span> cities) <span class="sc">%&gt;%</span></span>
-<span id="cb6-9"><a href=""></a>  <span class="fu">group_by</span>(year, Address) <span class="sc">%&gt;%</span></span>
-<span id="cb6-10"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">pm25=</span><span class="fu">mean</span>(pm25))</span>
-<span id="cb6-11"><a href=""></a></span>
-<span id="cb6-12"><a href=""></a><span class="fu">head</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-# Groups:   year [3]
-   year Address            pm25
-  &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;
-1  2000 Charlotte, NC      16.9
-2  2000 Winston-Salem, NC  16.7
-3  2001 Charlotte, NC      15.2
-4  2001 Winston-Salem, NC  15.1
-5  2002 Charlotte, NC      14.7
-6  2002 Winston-Salem, NC  14.5</code></pre>
-</div>
-</div>
-</section>
-<section id="visualizing-treated-and-untreated-outcomes-with-a-line-graph-2" class="slide level2">
-<h2>Visualizing Treated and Untreated Outcomes with a Line Graph</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>df2, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>pm25, <span class="at">col=</span>Address)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"coral"</span>))<span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2007</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb8-5"><a href=""></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>df2, <span class="fu">aes</span>(<span class="at">x=</span>Rainf_tavg, <span class="at">y=</span>pm25, <span class="at">col=</span>Address)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"coral"</span>))<span class="sc">+</span></span>
+<span id="cb2-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb2-5"><a href=""></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="causal_slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p><a href="https://sape.inf.usi.ch/quick-reference/ggplot2/colour">List</a> of colors names in R</p>
-</section>
-<section id="visualizing-treated-and-untreated-outcomes-with-a-line-graph-3" class="slide level2">
-<h2>Visualizing Treated and Untreated Outcomes with a Line Graph</h2>
+<img data-src="predict_slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-correlations-with-a-line-graph-2" class="slide level2">
+<h2>Visualizing Correlations with a Line Graph</h2>
 <p>Saving the graph as a .png file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">png</span>(<span class="st">"did.png"</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">height=</span><span class="dv">4</span>, <span class="at">units=</span><span class="st">"in"</span>, <span class="at">res=</span><span class="dv">500</span>)</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>df2, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>pm25, <span class="at">col=</span>Address)) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"coral"</span>))<span class="sc">+</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href=""></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2007</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">theme_bw</span>() </span>
-<span id="cb9-8"><a href=""></a></span>
-<span id="cb9-9"><a href=""></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">png</span>(<span class="st">"bestfit.png"</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">height=</span><span class="dv">4</span>, <span class="at">units=</span><span class="st">"in"</span>, <span class="at">res=</span><span class="dv">500</span>)</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>df2, <span class="fu">aes</span>(<span class="at">x=</span>Rainf_tavg, <span class="at">y=</span>pm25, <span class="at">col=</span>Address)) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"coral"</span>))<span class="sc">+</span></span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>png 
   2 </code></pre>
@@ -561,13 +482,13 @@
 <h2>Formatting Regression Results</h2>
 <p>Model 1</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>df3<span class="ot">&lt;-</span>df2 <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">trt=</span><span class="fu">ifelse</span>(Address<span class="sc">==</span><span class="st">"Charlotte, NC"</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">trt_time=</span><span class="fu">ifelse</span>(year<span class="sc">&gt;</span><span class="dv">2007</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a>model1<span class="ot">&lt;-</span><span class="fu">lm</span>(pm25 <span class="sc">~</span> trt<span class="sc">*</span>trt_time, <span class="at">data=</span>df3)</span>
-<span id="cb11-6"><a href=""></a></span>
-<span id="cb11-7"><a href=""></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>df3<span class="ot">&lt;-</span>df2 <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">trt=</span><span class="fu">ifelse</span>(Address<span class="sc">==</span><span class="st">"Charlotte, NC"</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">trt_time=</span><span class="fu">ifelse</span>(year<span class="sc">&gt;</span><span class="dv">2007</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a>model1<span class="ot">&lt;-</span><span class="fu">lm</span>(pm25 <span class="sc">~</span> trt<span class="sc">*</span>trt_time, <span class="at">data=</span>df3)</span>
+<span id="cb5-6"><a href=""></a></span>
+<span id="cb5-7"><a href=""></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -575,148 +496,75 @@ lm(formula = pm25 ~ trt * trt_time, data = df3)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--1.4293 -0.7345 -0.1470  0.4807  2.1648 
+-13.424  -4.353  -0.960   3.327  85.515 
 
 Coefficients:
              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   14.4860     0.3754  38.587  &lt; 2e-16 ***
-trt            0.3389     0.5309   0.638    0.529    
-trt_time      -4.7165     0.5496  -8.582 6.37e-09 ***
-trt:trt_time   0.3991     0.7943   0.502    0.620    
+(Intercept)   14.4867     0.1162 124.633   &lt;2e-16 ***
+trt            0.3390     0.1644   2.062   0.0392 *  
+trt_time      -4.7001     0.1734 -27.111   &lt;2e-16 ***
+trt:trt_time   0.3822     0.2481   1.540   0.1235    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.062 on 25 degrees of freedom
-Multiple R-squared:  0.8422,    Adjusted R-squared:  0.8232 
-F-statistic: 44.46 on 3 and 25 DF,  p-value: 3.604e-10</code></pre>
+Residual standard error: 6.283 on 10418 degrees of freedom
+Multiple R-squared:  0.1147,    Adjusted R-squared:  0.1145 
+F-statistic: 450.1 on 3 and 10418 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
 <section id="formatting-regression-results-1" class="slide level2">
 <h2>Formatting Regression Results</h2>
-<table class="caption-top">
-<caption>Regression Results</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th>Model 1</th>
-<th>Model 2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Estimated Impact</td>
-<td>0.40</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Controls</td>
-<td>Treated City FE, Time FE</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Obs</td>
-<td>29</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>R2</td>
-<td>0.84</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="formatting-regression-results-2" class="slide level2">
-<h2>Formatting Regression Results</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(<span class="st">"lfe"</span>)</span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a>model2<span class="ot">&lt;-</span><span class="fu">felm</span>(pm25 <span class="sc">~</span> trt<span class="sc">*</span>trt_time <span class="sc">|</span> year, <span class="at">data=</span>df3)</span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-   felm(formula = pm25 ~ trt * trt_time | year, data = df3) 
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.41429 -0.08444  0.00000  0.08444  0.41429 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)  
-trt            0.3389     0.1236   2.742   0.0179 *
-trt_time          NaN         NA     NaN      NaN  
-trt:trt_time   0.3605     0.1888   1.910   0.0804 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.2472 on 12 degrees of freedom
-Multiple R-squared(full model): 0.9959   Adjusted R-squared: 0.9904 
-Multiple R-squared(proj model): 0.7243   Adjusted R-squared: 0.3568 
-F-statistic(full model):181.9 on 16 and 12 DF, p-value: 8.029e-12 
-F-statistic(proj model): 10.51 on 3 and 12 DF, p-value: 0.001124 </code></pre>
-</div>
-</div>
-</section>
-<section id="formatting-regression-results-3" class="slide level2">
-<h2>Formatting Regression Results</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(<span class="st">"broom"</span>)</span>
+<span id="cb7-2"><a href=""></a><span class="fu">library</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="co">#format table</span></span>
+<span id="cb7-5"><a href=""></a>t1<span class="ot">&lt;-</span><span class="fu">tidy</span>(model1)[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a><span class="co">#display table</span></span>
+<span id="cb7-8"><a href=""></a><span class="fu">kable</span>(t1, <span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th></th>
-<th>Model 1</th>
-<th>Model 2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Estimated Impact</td>
-<td>0.40</td>
-<td>0.36</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">14.49</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr class="even">
-<td>Controls</td>
-<td>Treated City FE, Time FE</td>
-<td>Treated City FE, Time FE, Year FE</td>
+<td style="text-align: left;">trt</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr class="odd">
-<td>Obs</td>
-<td>29</td>
-<td>29</td>
+<td style="text-align: left;">trt_time</td>
+<td style="text-align: right;">-4.70</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr class="even">
-<td>R2</td>
-<td>0.84</td>
-<td>0.99</td>
+<td style="text-align: left;">trt:trt_time</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.12</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="formatting-regression-results-4" class="slide level2">
-<h2>Formatting Regression Results</h2>
-<p>Example table is shown in</p>
-<p>Google Drive/Shared drives/2024 FIRE-SA/Fall Course/Regression Results.gsheet</p>
-</section>
-<section id="formatting-the-gfm-page" class="slide level2">
-<h2>Formatting the GFM Page</h2>
-<p>At the beginning of each chunk, you can enter an option to suppress warnings, messages, and the running of codes</p>
-<p><a href="https://quarto.org/docs/computations/execution-options.html" class="uri">https://quarto.org/docs/computations/execution-options.html</a></p>
-<p><strong>#| eval: FALSE</strong> if you do not want the code to run when you click Render</p>
-<p><strong>#| warning: FALSE</strong> if you do not want warning messages to be displayed when you Render</p>
+
+
+</div>
+</div>
 </section>
 <section id="thats-it" class="slide level2">
 <h2>That’s it!</h2>
-<ul>
-<li><p>Slides can be found on ELMs -&gt; Modules -&gt; Week 11</p></li>
-<li><p>Don’t forget to come in for a Lab Consultation and a Lab Check-in!</p></li>
-</ul>
+<p>Slides and code can be found on ELMs -&gt; Modules -&gt; Week 11</p>
+<p>Don’t forget to come in for a Lab Consultation and a Lab Check-in!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -727,19 +575,19 @@ F-statistic(proj model): 10.51 on 3 and 12 DF, p-value: 0.001124 </code></pre>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="causal_slides_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="predict_slides_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="causal_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="causal_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="causal_slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="predict_slides_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

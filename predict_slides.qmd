@@ -1,0 +1,142 @@
+---
+title: "Tips for Making Your Poster and GFM Page"
+format: revealjs
+editor: visual
+---
+
+## What is a GitHub-Flavored Markdown Page (GFM)
+
+-   It is the page that you will see when you go to github.com/umdfiresa2024/research-*Team-Name*
+
+-   You can create this page by editing README.qmd in your team's GitHub repository
+
+-   After you Render, a README.md page is created
+
+-   After you commit and push, README.md will be your team's GitHub repository homepage. This is also called your team's GFM page.What is a GitHub-Flavored Markdown Page (GFM)
+
+## Today's Agenda
+
+-   Discuss products required in your team's GFM page and poster
+
+    -   Showcasing work in other programming languages
+
+    -   Formatting the GFM page
+
+    -   Visualizing correlations with a line graph
+
+    -   Formatting regression results
+
+## Showcasing work in other programming languages
+
+Insert -\> Executable Cell -\> Python
+
+## Formatting the GFM page
+
+At the beginning of each chunk, you can enter an option to suppress warnings, messages, and the running of codes
+
+<https://quarto.org/docs/computations/execution-options.html>
+
+**#\| eval: FALSE** if you do not want the code to run when you click Render
+
+**#\| warning: FALSE** if you do not want warning messages to be displayed when you Render
+
+## Visualizing Correlations with a Line Graph {.smaller}
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+library("tidyverse")
+
+df<-read.csv("panel.csv")
+
+cities<-c("Charlotte, NC", "Winston-Salem, NC")
+
+df2<-df %>%
+  filter(Address %in% cities)
+
+ggplot(data=df2, aes(x=Rainf_tavg, y=pm25, col=Address)) + 
+  geom_point() +
+  scale_colour_manual(values = c("cornflowerblue", "coral"))+
+  theme_bw() 
+  
+
+```
+
+[List](https://sape.inf.usi.ch/quick-reference/ggplot2/colour) of colors names in R
+
+## Visualizing Correlations with a Line Graph
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+ggplot(data=df2, aes(x=Rainf_tavg, y=pm25, col=Address)) + 
+  geom_point() +
+  scale_colour_manual(values = c("cornflowerblue", "coral"))+
+  geom_smooth(se=FALSE)+
+  theme_bw() 
+```
+
+## Visualizing Correlations with a Line Graph
+
+Saving the graph as a .png file
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+png("bestfit.png", width=6, height=4, units="in", res=500)
+
+ggplot(data=df2, aes(x=Rainf_tavg, y=pm25, col=Address)) + 
+  geom_point() +
+  scale_colour_manual(values = c("cornflowerblue", "coral"))+
+  geom_smooth(se=FALSE)+
+  theme_bw() 
+
+dev.off()
+```
+
+## Formatting Regression Results
+
+Model 1
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+df3<-df2 %>%
+  mutate(trt=ifelse(Address=="Charlotte, NC", 1, 0)) %>%
+  mutate(trt_time=ifelse(year>2007,1,0))
+
+model1<-lm(pm25 ~ trt*trt_time, data=df3)
+
+summary(model1)
+```
+
+## Formatting Regression Results
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+library("broom")
+library("kableExtra")
+
+#format table
+t1<-tidy(model1)[, c(1,2,5)]
+
+#display table
+kable(t1, digits=2)
+```
+
+## That's it!
+
+-   Slides can be found on ELMs -\> Modules -\> Week 11
+
+-   Don't forget to come in for a Lab Consultation and a Lab Check-in!
